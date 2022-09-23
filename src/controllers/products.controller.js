@@ -9,7 +9,7 @@ const getProductsById = async (req, res) => {
   const { id } = req.params;
   const product = await productService.getProductById(id);
   if (!product) {
-    res.status(404).json({ message: 'Produc t not found' });
+    res.status(404).json({ message: 'Product not found' });
   } else {
     return res.status(200).send(product);
   }
