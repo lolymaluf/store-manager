@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-22T23:05:26.731Z",
-    "modified": "2022-09-24T01:00:16.482Z",
+    "modified": "2022-09-24T02:31:23.754Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -44,6 +44,20 @@
       "raw": "{\n  \"name\": \"ProdutoX\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "2741db67-e60c-4b9f-a619-7ebed501bf94",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-24T02:31:21.099Z",
+    "modified": "2022-09-24T02:31:21.115Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
