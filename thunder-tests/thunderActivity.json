@@ -8,9 +8,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-22T23:05:26.731Z",
-    "modified": "2022-09-24T02:31:23.754Z",
+    "modified": "2022-09-24T04:10:53.349Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -55,9 +60,28 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-24T02:31:21.099Z",
-    "modified": "2022-09-24T02:31:21.115Z",
+    "modified": "2022-09-24T04:09:51.608Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "267d4286-37c5-4f2c-8587-45c6e31502a9",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/",
+    "url": "http://localhost:3000/products/",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-09-24T04:11:29.151Z",
+    "modified": "2022-09-24T04:11:29.250Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

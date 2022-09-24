@@ -16,8 +16,16 @@ const registerProducts = async (productCreated) => {
   return { id: result.insertId, name: productCreated };
 };
 
+const updateProduct = async (id, name) => {
+  const idProduct = await productModel.getProductById(id);
+  if (!idProduct) return null;
+  const product = await productModel.updateProduct(id, name);
+  return product;
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   registerProducts,
+  updateProduct,
 };
