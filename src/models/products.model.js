@@ -1,33 +1,33 @@
 const connection = require('./db/connection');
 
 const getAllProducts = async () => {
-  const [products] = await connection.execute(
-    'SELECT * FROM StoreManager.products ORDER BY id',
-  );
+  const [products] = await connection
+    .execute('SELECT * FROM StoreManager.products ORDER BY id');
   return products;
 };
 
 const getProductById = async (id) => {
-  const [[products]] = await connection.execute(
-    'SELECT * FROM StoreManager.products WHERE id = ?', [id],
-  );
+  const [[products]] = await connection
+    .execute('SELECT * FROM StoreManager.products WHERE id = ?', [id]);
   return products;
 };
 
 const registerProducts = async (name) => {
-  const [result] = await connection.execute(
-    'INSERT INTO StoreManager.products (name) VALUES (?)',
-    [name],
-  );
+  const [result] = await connection
+    .execute('INSERT INTO StoreManager.products (name) VALUES (?)', [name]);
   return result;
 };
 
 const updateProduct = async (id, name) => {
-  await connection.execute(
-    'UPDATE StoreManager.products SET name = ? WHERE id = ?',
-    [name, id],
-  );
+  await connection
+    .execute('UPDATE StoreManager.products SET name = ? WHERE id = ?', [name, id]);
   return { id, name };
+};
+
+const deleteThisProduct = async (id) => {
+  const result = await connection
+    .execute('DELETE FROM StoreManager.products WHERE id = ?', [id]);
+  return result;
 };
 
 module.exports = {
@@ -35,4 +35,5 @@ module.exports = {
   getProductById,
   registerProducts,
   updateProduct,
+  deleteThisProduct,
 };
