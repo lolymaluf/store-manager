@@ -28,13 +28,6 @@ const updateProduct = async (req, res) => {
   if (!response) return res.status(404).json({ message: 'Product not found' });
   return res.status(200).json(response);
 };
-/* 
-const deleteThisProduct = async (req, res) => {
-  const { id } = req.params;
-  const { type, message } = await productService.deleteThisProduct(id);
-  if (type) return res.status(404).json({ message });
-  res.status(204);
-}; */
 
 const deleteThisProduct = async (req, res) => {
   const { id } = req.params;
