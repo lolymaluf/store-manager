@@ -4,6 +4,7 @@ const getValidation = require('../middlewares/nameValidation');
 
 const router = express.Router();
 
+router.get('/search', productsController.searchProduct);
 router.get('/', productsController.getAllProducts);
 router.get('/:id', productsController.getProductsById);
 router.post('/', getValidation.nameValidation, productsController.registerProducts);
