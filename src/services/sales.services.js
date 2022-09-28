@@ -14,21 +14,22 @@ const salesId = async (id) => {
   return { type: null, message: sales };
 };
 
-/* const deleteSale = async (id) => {
-  const [verifySaleId] = await salesModel.salesId(id);
-  if (!verifySaleId) return { type: 404, message: 'Sale not found' };
-  const sales = await salesModel.deleteSale(id);
-  return sales;
-}; */
-
 const deleteSale = async (id) => {
   const result = await salesModel.salesId(id);
   if (result.length < 1) return { type: 404, message: 'Sale not found' };
   return salesModel.deleteSale(id);
 };
 
+/* const updateSale = async (id, name) => {
+  const isSale = await salesModel.salesId(id);
+  if (!isSale) return null;
+  const sale = await salesModel.updateSale(id, name);
+  return sale;
+}; */
+
 module.exports = {
   salesList,
   salesId,
   deleteSale,
+  /* updateSale, */
 };
