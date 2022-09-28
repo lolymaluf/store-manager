@@ -14,10 +14,6 @@ const {
 
 describe("Testa Products Model", () => {
 
-/*   before(async () => {
-    sinon.stub(connection, "execute").resolves([productsMock]);
-  }) */
-
   afterEach(async () => {
     connection.execute.restore();
   })
@@ -29,42 +25,30 @@ describe("Testa Products Model", () => {
   });
 
   it("Testa a função getProductById", async () => {
-    sinon.stub(connection, "execute").resolves([productId]);
+    sinon.stub(connection, "execute").resolves(productId);
     const result = await productsModel.getProductById(1);
-    expect(result).to.equal(productId);
+    expect(result).to.deep.equal(product);
   });
 
   it("Testa função registerProducts", async () => {
     sinon.stub(connection, "execute").resolves([{ insertId: 4 }]);
-    const results = await productsModel.registerProducts(createProduct);
-    
-    const [, [paramName]] = response.firstCall.args;
+    const results = await productsModel.registerProducts(createProduct.name);
 
-    expect(response.calledOnce).to.be.true;
-    expect(paramName).to.equal("ProdutoX");
-    expect(results).to.deep.equal(createProduct);
+/*     expect(paramName).to.equal("ProdutoX"); */
+    expect(results).to.deep.equal({ insertId: 4 });
   });
 
   it("Testa função updateProduct", async () => {
     sinon.stub(connection, "execute").resolves([product]);
     const results = await productsModel.updateProduct(1, "Martelo de Thor");
-    
-    const [, [paramName], [paramId]] = response.firstCall.args;
 
-    expect(response.calledOnce).to.be.true;
-    expect(paramName).to.equal("Martelo de Thor");
-    expect(paramId).to.equal(1);
     expect(results).to.deep.equal(product);
   });
   
   it("Testa função deleteThisProduct", async () => {
-    sinon.stub(connection, "execute").resolves([product]);
+    sinon.stub(connection, "execute").resolves(product);
     const results = await productsModel.deleteThisProduct(1);
-    
-    const [, [paramId]] = response.firstCall.args;
-
-    expect(response.calledOnce).to.be.true;
-    expect(paramId).to.equal(1);
+  
     expect(results).to.deep.equal(product);
   });
   
@@ -72,10 +56,6 @@ describe("Testa Products Model", () => {
     sinon.stub(connection, "execute").resolves([product]);
     const results = await productsModel.searchProduct("Martelo");
     
-    const [, [paramName]] = response.firstCall.args;
-
-    expect(response.calledOnce).to.be.true;
-    expect(paramName).to.equal("Martelo");
     expect(results).to.deep.equal(product);
   });
 

@@ -24,12 +24,17 @@
     "containerId": "",
     "name": "http://localhost:3000/products/1",
     "url": "http://localhost:3000/products/1",
-    "method": "GET",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2022-09-22T23:33:59.312Z",
-    "modified": "2022-09-27T23:39:14.141Z",
+    "modified": "2022-09-28T01:04:44.671Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -41,7 +46,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-09-23T22:24:18.849Z",
-    "modified": "2022-09-27T23:48:30.863Z",
+    "modified": "2022-09-28T01:20:36.473Z",
     "headers": [],
     "params": [],
     "body": {

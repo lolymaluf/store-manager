@@ -32,11 +32,6 @@ describe("Testa Sales Model", () => {
   it("Testa função deleteSale", async () => {
     sinon.stub(connection, "execute").resolves([product]);
     const results = await salesModel.deleteSale(1);
-
-    const [, [paramId]] = response.firstCall.args;
-
-    expect(response.calledOnce).to.be.true;
-    expect(paramId).to.equal(1);
     expect(results).to.deep.equal(product);
   });
 });

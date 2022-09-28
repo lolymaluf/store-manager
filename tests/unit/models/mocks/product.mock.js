@@ -29,11 +29,10 @@ const productId = [
   ],
 ];
 
-const createProduct = [
+const createProduct =
   {
     name: "ProdutoX",
-  },
-];
+  };
 
 module.exports = {
   productsMock,
