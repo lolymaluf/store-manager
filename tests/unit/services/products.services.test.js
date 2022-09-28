@@ -37,7 +37,7 @@ describe("Testa Products Service", () => {
   });
 
   it("Testa função updateProduct da Service", async () => {
-    sinon.stub(productModel, "updateProduct").resolves(product);
+    sinon.stub(productModel, "getProductById").resolves(product);
     const results = await productService.updateProduct(1, "Martelo de Thor");
 
     expect(results).to.deep.equal(product);
@@ -49,21 +49,20 @@ describe("Testa Products Service", () => {
       expect(results).to.deep.equal(null);
     });
 
-  it("Testa função deleteThisProduct da Service", async () => {
-    sinon.stub(productModel, "deleteThisProduct").resolves(product);
+    it("Testa função deleteThisProduct da Service", async () => {
+      sinon.stub(productModel, "getProductById").resolves(product);
+      sinon.stub(productModel, "deleteThisProduct").resolves();
     const results = await productService.deleteThisProduct(1);
 
-    expect(results).to.deep.equal(product);
-  });
+    expect(results).to.deep.equal();
+    });
 
- it("Testa deleteThisProduct, se não existir", async () => {
-   sinon.stub(productModel, "getProductById").resolves();
-    const results = await productService.deleteThisProduct(
-      1,
-      "Martelo de Thor"
-    );
+    it("Testa deleteThisProduct, se não existir", async () => {
+    sinon.stub(productModel, "getProductById").resolves();
+    const results = await productService.deleteThisProduct(1, "Martelo de Thor");
     expect(results).to.deep.equal(null);
- });
+    });
+
 
   it("Testa função searchProduct da Service", async () => {
     sinon.stub(productModel, "searchProduct").resolves([product]);

@@ -5,7 +5,7 @@ const getAllProducts = async (req, res) => {
   return res.status(200).send(products); 
 };
 
-const getProductsById = async (req, res) => {
+const getProductById = async (req, res) => {
   const { id } = req.params;
   const product = await productService.getProductById(id);
   if (!product) {
@@ -35,6 +35,8 @@ const deleteThisProduct = async (req, res) => {
   if (!response) return res.status(404).json({ message: 'Product not found' });
   console.log('response', response);
   return res.status(204).json();
+  // ou .end() para não enviar nada
+  // res.sendStatus(204);
 };
 
 const searchProduct = async (req, res) => {
@@ -46,7 +48,7 @@ const searchProduct = async (req, res) => {
 
 module.exports = {
   getAllProducts,
-  getProductsById,
+  getProductById,
   registerProducts,
   updateProduct,
   deleteThisProduct,
